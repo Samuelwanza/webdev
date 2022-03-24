@@ -26,7 +26,7 @@
     </header>
 
     <main>
-      <h1 class="header">Heroes form</h1>
+      <h1 class="header">Update Heroes</h1>
       <form method="POST">
         <div class="group">
           <lable for="name">Id</lable>

@@ -1,5 +1,5 @@
 body {
-  background-color: lightblue;
+
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -66,7 +66,7 @@ button {
 
 button:hover {
   color: white;
-  background-color: blue;
+  background-color: gray;
 }
 table #tab {
   border: 10px;
@@ -83,4 +83,11 @@ ol {
   color: beige;
   font-size: 18px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.header {
+  text-align: center;
+  text-transform: uppercase;
+  background-color: white;
+  width: 50%;
+  margin:auto;
 }

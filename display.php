@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HEROES</title>
-    <link rel="stylesheet" type="text/css" href="styles1.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href ="styles1.css">
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>
@@ -20,7 +22,7 @@
         </ol>
 
         <ol>
-          <a href="index.php">UPDATE</a>
+          <a href="update.php">UPDATE</a>
         </ol>
         <ol>
           <a href="delete.php">DELETE</a>
