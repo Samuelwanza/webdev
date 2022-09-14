@@ -1,52 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="styles1.css" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <ul>
-        <ol>
-          <a href="login.php">LOGIN</a>
-        </ol>
-      </ul>
-      <h1> Heroes</h1>
-      <p id="p"> The best place to obtain info about your heroes<p>
-    </header>
-    <?php
-    include "configuration.php";
-    $select = 'SELECT id, hero_name, real_name, short_bio, long_bio FROM heroes';
+
+<?php
+include "header1.php";
+include "configuration.php";
+?>
+
+<main id="main">
+         <!-- ======= Teasm Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Heroes</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+          
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+            
+            <?php
+            
+    
+    $select = 'SELECT id, hero_name, real_name, short_bio, long_bio,image_url FROM heroes';
     $result = $conn->query($select); if ($select) { ?>
 
-    <table class="tab">
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Real_name</th>
-        <th>Short Bio</th>
-        <th>Long Bio</th>
-      </tr>
-
       <?php while ($row = $result->fetch_assoc()) { ?>
-      <tr>
-        <td><?php echo $row["id"]; ?></td>
-        <td><?php echo $row["hero_name"]; ?></td>
-        <td><?php echo $row["real_name"]; ?></td>
-        <td><?php echo $row["short_bio"]; ?></td>
-        <td><?php echo $row["long_bio"]; ?></td>
-      </tr>
-      <?php  }
+        
+              <div class="member-info">
+              <div class="pic"><img src="./uploads/<?php echo $row["image_url"]?>" class="img-fluid" alt=""></div>
+                <h2><td><?php echo $row["id"]; ?></td></h2>
+                <h4><?php echo $row["hero_name"]; ?></h4>
+                <span><?php echo $row["real_name"]; ?></span>
+                <p><?php echo $row["short_bio"]; ?></p>
+                <p><?php echo $row["long_bio"]; ?> </p>
+              </div>
+              <?php  }
         } 
         else {
             echo "o result";
         }  
         $conn->close(); ?>
-    </table>
-  </body>
+            </div>
+            
+          </div>
+  
+          
+        </div>
+        
+
+      </div>
+    </section><!-- End Team Section -->
+    
+ 
+  </main><!-- End #main -->
+
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
 </html>

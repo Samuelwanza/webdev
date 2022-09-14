@@ -1,60 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="styles1.css" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <ul>
-        <ol>
-          <a href="logout.php">LOGOUT</a>
-        </ol>
-        <ol>
-          <a href="index.php">UPDATE</a>
-        </ol>
-        <ol>
-          <a href="delete.php">DELETE</a>
-        </ol>
-        <ol>
-          <a href="index.php">CREATE</a>
-        </ol>
-        <ol>
-          <a href="registration.php">REGISTRATION</a>
-        </ol>
 
-      </ul>
-      <h1> Users</h1>
-      <p id="p"> These are the authorized users<p>
-    </header>1
-    <?php
-    include "configuration.php";
-    $select = 'SELECT id, username,passwords FROM users';
+<?php
+include "configuration.php";
+include "header.php";
+?>
+
+<body>
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Users</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+          
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+            
+            <?php
+            
+    
+    $select = 'SELECT id, username,password FROM users';
     $result = $conn->query($select); if ($select) { ?>
 
-    <table class="tab">
-      <tr>
-        <th>Id</th>
-        <th>Username</th>
-        <th>password</th>
-      </tr>
-
       <?php while ($row = $result->fetch_assoc()) { ?>
-      <tr>
-        <td><?php echo $row["id"]; ?></td>
-        <td><?php echo $row["username"]; ?></td>
-        <td><?php echo $row["passwords"]; ?></td>
-      </tr>
-      <?php  }
+        
+              <div class="member-info"><div class="pic"><img src="" class="img-fluid" alt=""></div>
+                <h2><td><?php echo $row["id"]; ?></td></h2>
+                <h4><?php echo $row["username"]; ?></h4>
+                <p><?php echo $row["password"]; ?></p>
+             
+              </div>
+              <?php  }
         } 
         else {
             echo "o result";
         }  
         $conn->close(); ?>
-    </table>
-  </body>
+            </div>
+            
+          </div>
+  
+          
+        </div>
+        
+
+      </div>
+    </section><!-- End Team Section -->
+    
+ 
+  </main><!-- End #main -->
+
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
 </html>

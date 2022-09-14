@@ -1,96 +1,96 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href ="styles1.css">
-    <link rel="stylesheet" href="styles.css" />
 
-    <title>UPDATE</title>
-  </head>
-  <body>
-    <header>
-        <ul>
-          <ol>
-            <a href="display.php">MY HEROES</a>
-          </ol>
-          <ol>
-            <a href="delete.php">DELETE</a>
-          </ol>
-          <ol>
-            <a href="logout.php">LOGOUT</a>
-          </ol>
-        </ul>
-    </header>
+<?php
+include "header.php";
+include "configuration.php";
+?>
 
-    <main>
-      <h1 class="header">Update Heroes</h1>
+<main id="main">
+         <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Update Heroes</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6">
       <form method="POST">
-        <div class="group">
-          <lable for="name">Id</lable>
-          <input type="text" name="hero_id" id="name" placeholder="Enter hero_Id" />
-        </div>
-        <div class="group">
-          <lable for="name">name</lable>
-          <input type="text" name="hero_name" id="name" placeholder="enter name" />
-        </div>
-        <div class="group">
-          <label for="realname">real name</label>
-          <input
-            type="text"
-            name="real_name"
-            id="realname"
-            placeholder="enter real name"
-          />
-        </div>
-        <div class="group">
-          <label for="shortbio">short bio</label>
-          <textarea
-            class="shorts"
-            name="shortbio"
-            id="shortbio"
-            placeholder="enter a short bio about hero"
-          ></textarea>
-        </div>
-        <div class="group">
-          <label for="longbio">long bio</label>
-          <textarea
-            class="longs"
-            name="longbio"
-            id="longbio"
-            placeholder="long bio about hero story"
-          ></textarea>
-        </div>
-
-        <button type="submit" name="submit" id="submit">submit</button>
-      </form>
+      <div class="form-group">
+    <label for="name">Id</label>
+    <input type="text"  name="hero_id" id="name" class="form-control" id="" placeholder="Enter hero_Id">
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text"  name="name" id="name" class="form-control" id="" placeholder="hero name">
+  </div>
+  <div class="form-group">
+    <label for="realname">Real name</label>
+    <input type="text" name="realname" id="realname" class="form-control" id="" placeholder="real name">
+  </div>
+  <div class="form-group">
+    <label for="shortbio">Shortbio</label>
+    <textarea class="form-control" name="shortbio" id="" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="longbio">Long bio</label>
+    <textarea class="form-control" name="longbio" id="" rows="3"></textarea>
+  </div>
+  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+</form>
+    </div>
+  
       <?php
       include "configuration.php";
       if (isset($_POST['submit'])) {
         $hero_id=$_POST["hero_id"];
-        $hero_name = $_POST["hero_name"];
-        $real_name = $_POST["real_name"];
+        $name = $_POST["name"];
+        $real_name = $_POST["realname"];
         $shortBio = $_POST["shortbio"];
         $longBio = $_POST["longbio"];
 
         // insert data from the users into database
-        try{$insert = "UPDATE heroes SET hero_name='$hero_name',real_name='$real_name',short_bio='$shortBio',long_bio='$longBio' WHERE id=$hero_id";
+        try{$insert = "UPDATE heroes SET hero_name='$name',real_name='$real_name',short_bio='$shortBio',long_bio='$longBio' WHERE id=$hero_id";
         
-          $query = mysqli_query($conn, $insert);}
-      
-        catch(Exception $e){
-          echo $e->getMessage();
-          exit;
-        /*if ($query) { 
-            echo ("successfull add") . "<br>";
-        } else {
-            echo ("failed to add data") . "<br>";
-      }*/}}
-        $conn->close();
+            $query = mysqli_query($conn, $insert);}
+        
+          catch(Exception $e){
+            echo $e->getMessage();
+            exit;
+          if ($query) { 
+              echo ("Update successful") . "<br>";
+          } else {
+              echo ("failed to update data") . "<br>";
+        }}}
+          $conn->close();
+  
+        ?>
 
-      ?>
-    </main>
-  </body>
+      </div>
+    </section><!-- End Team Section -->
+    
+ 
+  </main><!-- End #main -->
+
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
 </html>
